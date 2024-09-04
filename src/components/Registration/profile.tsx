@@ -23,7 +23,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 
-import { Button } from "@/components/ui/button"
+// import { Button } from "@/components/ui/button"
 import { useFormContext } from "react-hook-form";
 import { Input } from "../ui/input"
 import { RegistrationFormType } from '@/types/registration';
@@ -56,7 +56,7 @@ export const Profile = ()=>{
                 </FormLabel>
                 <FormControl>
                   <Input type="text" placeholder="Your full name"
-                    className="dark:bg-neutral-800"
+                    className="dark:bg-neutral-900"
                     onChange={field.onChange}
                     defaultValue={field.value}
                   />
@@ -75,7 +75,7 @@ export const Profile = ()=>{
                 </FormLabel>
                 <FormControl>
                 <Input type="date" placeholder="Your date of birth" 
-                  className="dark:bg-neutral-800"
+                  className="dark:bg-neutral-900"
                   onChange={field.onChange}
                   defaultValue={field.value} 
                 />
@@ -94,7 +94,7 @@ export const Profile = ()=>{
                 </FormLabel>
                 <FormControl>
                 <Input type="number" placeholder="Your present age" 
-                  className="dark:bg-neutral-800"
+                  className="dark:bg-neutral-900"
                   onChange={field.onChange}
                   defaultValue={field.value} 
                 />
@@ -139,7 +139,7 @@ export const Profile = ()=>{
                 </FormLabel>
                 <FormControl>
                   <Input type="email" placeholder="Your email address"
-                    className="dark:bg-neutral-800"
+                    className="dark:bg-neutral-900"
                     onChange={field.onChange}
                     defaultValue={field.value}
                   />
@@ -158,7 +158,7 @@ export const Profile = ()=>{
                 </FormLabel>
                 <FormControl>
                   <Input type="tel" placeholder="Your mobile number"
-                    className="dark:bg-neutral-800"
+                    className="dark:bg-neutral-900"
                     onChange={field.onChange}
                     defaultValue={field.value}
                   />
@@ -193,7 +193,7 @@ export const Profile = ()=>{
               </FormItem>
             )}
           />
-          <div className="lg:flex justify-between lg:space-x-2 max-lg:border max-lg:rounded-xl max-lg:p-2 max-lg:mt-1 max-lg:shadow-sm">
+          <div className="lg:flex justify-between lg:space-x-2 max-lg:border max-lg:rounded-xl max-lg:p-2 max-lg:space-y-1 max-lg:shadow-sm">
             <FormField 
               control={control}
               name="profile.idProof.validIdType"
@@ -208,7 +208,7 @@ export const Profile = ()=>{
                       defaultValue={field.value}
                     >
                       <FormControl>
-                        <SelectTrigger>
+                        <SelectTrigger className="dark:bg-neutral-900">
                           <SelectValue placeholder="Select ID type" />
                         </SelectTrigger>
                       </FormControl>
@@ -233,7 +233,7 @@ export const Profile = ()=>{
                   </FormLabel>
                   <FormControl>
                     <Input type="text" placeholder="Enter value"
-                      className="dark:bg-neutral-800"
+                      className="dark:bg-neutral-900"
                       onChange={field.onChange}
                       defaultValue={field.value}
                     />
