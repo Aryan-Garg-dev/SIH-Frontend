@@ -31,9 +31,9 @@ const Register = () => {
     <div className="w-full min-h-screen bg-primary-foreground dark:bg-[#1f1f1f] flex flex-col items-center">
       <HomeBar />
       <FormProvider {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)}>
-          <Tabs defaultValue="profile" className="mt-10">
-            <TabsList>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="min-w-[425px] w-[60%] max-w-[600px]">
+          <Tabs defaultValue="profile" className="mt-10 w-full">
+            <TabsList className="w-full flex justify-around">
               <TabsTrigger value="profile">Profile</TabsTrigger>
               <TabsTrigger value="address">Address</TabsTrigger>
               <TabsTrigger value="education">Education</TabsTrigger>
