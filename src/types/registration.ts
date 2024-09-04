@@ -59,3 +59,5 @@ export const registrationFormSchema = z.object({
   password: passwordSchema,
   declaration: z.boolean()
 })
+
+export type RegistrationFormType = z.infer<typeof registrationFormSchema>;
