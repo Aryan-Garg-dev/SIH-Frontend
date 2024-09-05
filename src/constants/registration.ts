@@ -49,3 +49,12 @@ export const genders = [
   "female",
   "other"
 ] as const;
+
+export const formSections ={
+  default: "profile",
+  profile: "profile",
+  address: "address",
+  education: "education",
+  experience: "experience",
+  password: "password"
+} as const;

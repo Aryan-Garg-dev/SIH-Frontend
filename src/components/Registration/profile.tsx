@@ -28,12 +28,15 @@ import { useFormContext } from "react-hook-form";
 import { Input } from "../ui/input"
 import { RegistrationFormType } from '@/types/registration';
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { castes, genders, validIDTypes } from "@/constants/registration";
+import { castes, formSections, genders, validIDTypes } from "@/constants/registration";
 import { capitalize } from "lodash"
 import { Button } from "../ui/button";
+import { useSetRecoilState } from "recoil";
+import { formSectionAtom } from "@/store/formAtom";
 
 export const Profile = ()=>{
   const { control, trigger } = useFormContext<RegistrationFormType>();
+  const setCurrentTab = useSetRecoilState(formSectionAtom);
 
   const validateProfileSchema = async()=>{
     const isValid = await trigger([
@@ -44,7 +47,7 @@ export const Profile = ()=>{
 
   const handleClick = async ()=>{
     const isValid = await validateProfileSchema();
-    if (isValid) alert("Moving to next section")
+    if (isValid) setCurrentTab(formSections.address);
   }
 
   return (
@@ -108,7 +111,7 @@ export const Profile = ()=>{
                 <FormControl>
                 <Input type="number" placeholder="Your present age" 
                   className="dark:bg-neutral-900"
-                  onChange={field.onChange}
+                  onChange={(e) => field.onChange(parseInt(e.target.value, 10))}
                   defaultValue={field.value} 
                 />
                 </FormControl>
@@ -172,7 +175,7 @@ export const Profile = ()=>{
                 <FormControl>
                   <Input type="tel" placeholder="Your mobile number"
                     className="dark:bg-neutral-900"
-                    onChange={field.onChange}
+                    onChange={(e) => field.onChange(parseInt(e.target.value, 10))}
                     defaultValue={field.value}
                   />
                 </FormControl>

@@ -10,8 +10,16 @@ import { registrationFormSchema, RegistrationFormType } from "@/types/registrati
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { Profile } from "@/components/Registration/profile";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRecoilState } from "recoil";
+import { formSectionAtom } from "@/store/formAtom";
 
 const Register = () => {
+  const [ currentTab, setCurrentTab ] = useRecoilState(formSectionAtom);
+
+  const onTabChange = (value: string)=>{
+    setCurrentTab(value);
+  }
+
   const form = useForm<RegistrationFormType>({
     resolver: zodResolver(registrationFormSchema)
   })
@@ -32,7 +40,7 @@ const Register = () => {
       <HomeBar />
       <FormProvider {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="min-w-[425px] w-[60%] max-w-[600px]">
-          <Tabs defaultValue="profile" className="mt-10 w-full">
+          <Tabs value={currentTab} onValueChange={onTabChange} className="mt-10 w-full">
             <TabsList className="w-full flex justify-around">
               <TabsTrigger value="profile">Profile</TabsTrigger>
               <TabsTrigger value="address">Address</TabsTrigger>

@@ -55,7 +55,7 @@ export const registrationFormSchema = z.object({
     permanentAddress: addressSchema
   }),
   education: z.array(educationSchema),
-  experienceSchema: z.array(experienceSchema),
+  experience: z.array(experienceSchema),
   password: passwordSchema,
   declaration: z.boolean()
 })
