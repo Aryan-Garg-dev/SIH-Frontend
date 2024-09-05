@@ -6,8 +6,8 @@ export const profileSchema = z.object({
   gender: z.enum(genders),
   caste: z.enum(castes),
   dob: z.string().date(),
-  presentAge: z.number(),
-  mobileNumber: z.number(),
+  presentAge: z.coerce.number(),
+  mobileNumber: z.coerce.number(),
   emailAddress: z.string().email(),
   idProof: z.object({
     validIdType: z.enum(validIDTypes),

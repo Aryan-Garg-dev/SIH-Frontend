@@ -33,6 +33,7 @@ import { capitalize } from "lodash"
 import { Button } from "../ui/button";
 import { useSetRecoilState } from "recoil";
 import { formSectionAtom } from "@/store/formAtom";
+import { toast } from "sonner";
 
 export const Profile = ()=>{
   const { control, trigger } = useFormContext<RegistrationFormType>();
@@ -47,7 +48,10 @@ export const Profile = ()=>{
 
   const handleClick = async ()=>{
     const isValid = await validateProfileSchema();
-    if (isValid) setCurrentTab(formSections.address);
+    if (isValid) {
+      toast.success("Profile data saved successfully!!!")
+      setCurrentTab(formSections.address);
+    }
   }
 
   return (
