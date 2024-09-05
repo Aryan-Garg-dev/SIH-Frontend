@@ -58,7 +58,7 @@ const Login = () => {
       <HomeBar />
       <Card className="mt-20 w-80 shadow-sm dark:shadow-gray-900 shadow-gray-200">
         <CardHeader>
-          <CardTitle className="text-4xl text-center font-howdy text-gray-400">
+          <CardTitle className="text-4xl text-center font-bold text-gray-400">
             Login
           </CardTitle>
           <CardDescription className="text-base text-center">
@@ -73,9 +73,9 @@ const Login = () => {
                 name="employeeId"
                 render={({field}) => (
                   <FormItem>
-                    <FormLabel>Employee ID:</FormLabel>
+                    <FormLabel>Employee ID</FormLabel>
                     <FormControl>
-                      <Input placeholder="Your ID:" {...field} />
+                      <Input type="text" placeholder="Your ID" {...field} />
                     </FormControl>
                     {/* <FormDescription>
                       Description
@@ -89,9 +89,9 @@ const Login = () => {
                 name="password"
                 render={({field}) => (
                   <FormItem>
-                    <FormLabel>Password:</FormLabel>
+                    <FormLabel>Password</FormLabel>
                     <FormControl>
-                      <Input placeholder="Enter Password:" {...field} />
+                      <Input type="password" placeholder="Enter Password" {...field} />
                     </FormControl>
                     {/* <FormDescription>
                       Description

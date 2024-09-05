@@ -30,15 +30,28 @@ import { RegistrationFormType } from '@/types/registration';
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { castes, genders, validIDTypes } from "@/constants/registration";
 import { capitalize } from "lodash"
+import { Button } from "../ui/button";
 
 export const Profile = ()=>{
-  const { control } = useFormContext<RegistrationFormType>();
+  const { control, trigger } = useFormContext<RegistrationFormType>();
+
+  const validateProfileSchema = async()=>{
+    const isValid = await trigger([
+      "profile",
+    ])
+    return isValid;
+  }
+
+  const handleClick = async ()=>{
+    const isValid = await validateProfileSchema();
+    if (isValid) alert("Moving to next section")
+  }
 
   return (
     
-    <Card>
+    <Card className="mb-5">
       <CardHeader>
-        <CardTitle className="text-2xl font-semibold">
+        <CardTitle className="text-2xl font-bold">
           Profile Details
         </CardTitle>
         <CardDescription>
@@ -242,6 +255,9 @@ export const Profile = ()=>{
                 </FormItem>
               )}
             />
+          </div>
+          <div className="w-full flex justify-end">
+            <Button variant={"outline"} className="w-full" onClick={handleClick}>Next</Button>
           </div>
       </CardContent>
     </Card>
